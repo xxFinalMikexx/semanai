@@ -4,9 +4,125 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.miguel.semanai.ActividadFormulario">
+    tools:context="com.example.miguel.semanai.ActividadFormulario"
+    android:background="@color/background"
+    android:textColor="@color/textInd">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:inputType="number"
+        android:id="@+id/alturaInicial"
+        android:hint="@string/alt_inicial"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/longitudDescarga"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/redondeado"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:inputType="number"
+        android:id="@+id/alturaFinal"
+        android:hint="@string/alt_final"
+        android:layout_below="@+id/alturaInicial"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/descripcion"
+        android:textAlignment="center"
+        android:id="@+id/descripcion"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/whiteText"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:id="@+id/materialesLista"
+        android:entries="@array/materiales"
+        android:prompt="@string/materiales_titulo"
+        android:layout_below="@+id/perdidaDistancia"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:id="@+id/velocidadInicial"
+        android:inputType="number"
+        android:hint="@string/vel_inicial"
+        android:layout_below="@+id/cantidadFlujo"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:id="@+id/cantidadFlujo"
+        android:inputType="number"
+        android:hint="@string/cant_flujo"
+        android:layout_below="@+id/alturaFinal"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:id="@+id/perdidaDistancia"
+        android:inputType="number"
+        android:hint="@string/dist_perdida"
+        android:layout_below="@+id/velocidadInicial"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/button_siguiente"
+        android:id="@+id/button"
+        android:layout_below="@+id/materialesLista"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/redondeado"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:id="@+id/longitudDescarga"
+        android:inputType="number"
+        android:hint="@string/long_descarga"
+        android:layout_below="@+id/descripcion"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/redondeado"/>
 
 </RelativeLayout>
