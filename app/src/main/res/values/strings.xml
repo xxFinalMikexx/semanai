@@ -1,9 +1,33 @@
 <resources>
     <string name="app_name">Semanai</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_actividad_cargando">ActividadCargando</string>
-    <string name="title_activity_actividad_formulario">ActividadFormulario</string>
+    <string name="title_activity_actividad_formulario">Datos iniciales</string>
     <string name="title_activity_actividad_reporte">ActividadReporte</string>
+    <string name="alt_inicial">Altura inicial (m)</string>
+    <string name="alt_final">Altura final (m)</string>
+    <string name="tipo_material">Material a usar</string>
+    <string name="cant_flujo">Flujo deseado (lts/s)</string>
+    <string name="vel_inicial">Velocidad inicial (m/s)</string>
+    <string name="dist_perdida">Distancia por pérdida de conexión (m)</string>
+    <string name="descripcion">
+        Por favor inserte los datos a continuación que servirán como los valores iniciales
+        para los cálculos.
+    </string>
+    <string name="materiales_titulo">Selecciona el material a usar</string>
+    <string-array name="materiales">
+        <item>Hierro</item>
+        <item>Acero</item>
+        <item>Polietileno</item>
+        <item>Concreto</item>
+        <item>PVC</item>
+    </string-array>
+    <string name="button_siguiente">Siguiente</string>
+    <string name="button_comenzar">Comenzar</string>
+    <string name="long_descarga">Longitud de descarga (m)</string>
+
+    <color name="background">#4264AF</color>
+    <color name="fondoInd">#FFFFFF</color>
+    <color name="textInd">#000000</color>
+    <color name="whiteText">#FFFFFF</color>
 </resources>
