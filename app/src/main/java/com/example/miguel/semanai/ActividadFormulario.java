@@ -11,13 +11,14 @@ public class ActividadFormulario extends AppCompatActivity {
     private double pi= 3.141592;
     private double elasticidadAgua= 20670;
 
-    //Altura
+    //Altura, H
     public float cargaEstatica(float altInicial, float altFinal, float colchon){
         float cargaE= (altFinal-altInicial)+colchon;
         return cargaE;
     }
 
     //Qmo= flujo
+    //Area que se saca con inputs del usuario
     public float area(float flujo, float vel){
         float area=flujo/vel;
         return area;
@@ -66,8 +67,8 @@ public class ActividadFormulario extends AppCompatActivity {
     }
 
     //Segundo golpe calculado en kg/cm^2
-    public float golpeA(float golpeA){
-        float golpeB= golpeA/10;
+    public float golpeA(float golpeMetros){
+        float golpeB= golpeMetros/10;
         return golpeB;
     }
 
@@ -82,19 +83,20 @@ public class ActividadFormulario extends AppCompatActivity {
         float pn= pnMetros/10;
         return pn;
     }
-
-
+    
     //Calculado en metros
     public float ptMetros(float golpeMetros, float pnMetros){
         float ptMetros= golpeMetros+pnMetros;
         return ptMetros;
     }
 
+    //Segundo calculado en kg/cm^2
     public float pt(float ptMetros){
         float pt= ptMetros/10;
         return pt;
     }
 
+    //Metodo para regresar a la pantalla de escoger material/alerta
     public void presionesTubo(float pt, float pn, float golpeA, float presionTubo){
         float pva=0;
         if(pt >= presionTubo) {
