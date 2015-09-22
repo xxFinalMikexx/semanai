@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActividadCargando"
+            android:label="@string/title_activity_actividad_cargando" >
+        </activity>
+        <activity
+            android:name=".ActividadFormulario"
+            android:label="@string/title_activity_actividad_formulario" >
+        </activity>
+        <activity
+            android:name=".ActividadReporte"
+            android:label="@string/title_activity_actividad_reporte" >
+        </activity>
     </application>
 
 </manifest>
