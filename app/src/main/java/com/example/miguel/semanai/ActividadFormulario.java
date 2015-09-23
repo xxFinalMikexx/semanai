@@ -17,14 +17,14 @@ public class ActividadFormulario extends AppCompatActivity {
     rugosidad.put("acero", 0.07);
     rugosidad.put("pvc", 0.020);
     rugosidad.put("polietireno", 0.002);
-    rugosidad.put("cemento", 0.07);
+    rugosidad.put("hierro", 0.07);
 
     //HashMap de elasticidad
     Map<String, Float> elasticidad= new HashMap<String, Float>();
     elasticidad.put("acero",2100000 );
     elasticidad.put("pvc", 28100);
     elasticidad.put("polietireno",5200);
-    elasticidad.put("cemento", 320000);
+    elasticidad.put("hierro", 320000);
 
     //HashMap de diametros PVC
     Map<String, Float> diametroPVC= new HashMap<String, Float>();
@@ -43,6 +43,7 @@ public class ActividadFormulario extends AppCompatActivity {
     diametroPVC.put("10", 450);
     diametroPVC.put("12", 420);
 
+    /7PVC, hierro, acero, polietileno
     //HashMap de diametros Acero
     Map<String, Float> diametroAcero= new HashMap<String, Float>();
     diametroAcero.put("1/8", 3500/14.23);
@@ -63,6 +64,8 @@ public class ActividadFormulario extends AppCompatActivity {
     diametroAcero.put("8", 1910);
     diametroAcero.put("10", 1910);
     diametroAcero.put("12", 1910);
+
+    //HashMap PE pipes
 
 
 
