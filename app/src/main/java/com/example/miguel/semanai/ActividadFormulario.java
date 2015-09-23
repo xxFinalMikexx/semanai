@@ -5,12 +5,69 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import java.lang.*;
+import java.util.*;
 
 public class ActividadFormulario extends AppCompatActivity {
 
     private double pi= 3.141592;
     private double elasticidadAgua= 20670;
 
+    //HashMap de Rugosidad
+    Map<String, Float> rugosidad= new HashMap<String, Float>();
+    rugosidad.put("acero", 0.07);
+    rugosidad.put("pvc", 0.020);
+    rugosidad.put("polietireno", 0.002);
+    rugosidad.put("cemento", 0.07);
+
+    //HashMap de elasticidad
+    Map<String, Float> elasticidad= new HashMap<String, Float>();
+    elasticidad.put("acero",2100000 );
+    elasticidad.put("pvc", 28100);
+    elasticidad.put("polietireno",5200);
+    elasticidad.put("cemento", 320000);
+
+    //HashMap de diametros PVC
+    Map<String, Float> diametroPVC= new HashMap<String, Float>();
+    diametroPVC.put("1/2", 1910);
+    diametroPVC.put("3/4", 1540);
+    diametroPVC.put("1", 1440);
+    diametroPVC.put("5/4", 1180);
+    diametroPVC.put("3/2", 1060);
+    diametroPVC.put("2", 890);
+    diametroPVC.put("5/2", 870);
+    diametroPVC.put("3", 840);
+    diametroPVC.put("4", 710);
+    diametroPVC.put("5", 620);
+    diametroPVC.put("6", 560);
+    diametroPVC.put("8", 500);
+    diametroPVC.put("10", 450);
+    diametroPVC.put("12", 420);
+
+    //HashMap de diametros Acero
+    Map<String, Float> diametroAcero= new HashMap<String, Float>();
+    diametroAcero.put("1/8", 3500/14.23);
+    diametroAcero.put("1/4", 2100);
+    diametroAcero.put("3/8", 1700);
+    diametroAcero.put("1/2", 2300);
+    diametroAcero.put("3/4", 2000);
+    diametroAcero.put("1", 2100);
+    diametroAcero.put("5/4", 1800);
+    diametroAcero.put("3/2", 1700);
+    diametroAcero.put("2", 1500);
+    diametroAcero.put("5/2", 1900);
+    diametroAcero.put("3", 1910);
+    diametroAcero.put("7/2", 1910);
+    diametroAcero.put("4", 1910);
+    diametroAcero.put("5", 1910);
+    diametroAcero.put("6", 1910);
+    diametroAcero.put("8", 1910);
+    diametroAcero.put("10", 1910);
+    diametroAcero.put("12", 1910);
+
+
+
+
+///////////////////////Formulas///////////////////////
     //Altura, H
     public float cargaEstatica(float altInicial, float altFinal, float colchon){
         float cargaE= (altFinal-altInicial)+colchon;
@@ -107,9 +164,6 @@ public class ActividadFormulario extends AppCompatActivity {
         }
 
     }
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
