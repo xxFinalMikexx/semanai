@@ -109,6 +109,14 @@ public class ActividadFormulario extends AppCompatActivity {
     }
 
 
+    //Información
+    public float rugosidad(){
+        if(){
+
+        }
+    }
+
+
 
 
     @Override
