@@ -36,63 +36,84 @@ public class ActividadReporte extends AppCompatActivity {
     Map<String, Float> diametroHierro= new HashMap<String, Float>();
     //HashMap de diametros PE
     Map<String, Map<String, Float>> diametros= new HashMap<String, Map<String, Float>>();
+    //Hashmap de los diametros en Float
+    Map<String, Float> diametrosTotales = new HashMap<String, Float>();
 
 
-    public void setHashMaps(Map rugosidad, Map elasticidad, Map diametroPVC, Map diametroAcero, Map diametroPE, Map diametroHierro, Map diametros) {
-        rugosidad.put("Acero", 0.0010);
-        rugosidad.put("PVC", 0.009);
-        rugosidad.put("PR", 0.008);
+    public void setHashMaps() {
+        this.diametrosTotales.put("1/2", (float)0.5);
+        this.diametrosTotales.put("3/4", (float)0.75);
+        this.diametrosTotales.put("1", (float)1);
+        this.diametrosTotales.put("5/4", (float)1.25);
+        this.diametrosTotales.put("3/2", (float)1.5);
+        this.diametrosTotales.put("2", (float)2);
+        this.diametrosTotales.put("5/2", (float)2.5);
+        this.diametrosTotales.put("3", (float)3);
+        this.diametrosTotales.put("4", (float)4);
+        this.diametrosTotales.put("5", (float)5);
+        this.diametrosTotales.put("6", (float)6);
+        this.diametrosTotales.put("8", (float)8);
+        this.diametrosTotales.put("10", (float)10);
+        this.diametrosTotales.put("12", (float)12);
+        this.diametrosTotales.put("1/8", (float)0.125);
+        this.diametrosTotales.put("1/4", (float)0.25);
+        this.diametrosTotales.put("3/8", (float)0.375);
+        this.diametrosTotales.put("7/2", (float)3.5);
 
-        elasticidad.put("Acero",2100000 );
-        elasticidad.put("PVC", 28100);
-        elasticidad.put("PE",5200);
+        this.rugosidad.put("Acero", (float)0.0010);
+        this.rugosidad.put("PVC", (float)0.009);
+        this.rugosidad.put("PE", (float)0.008);
 
-        diametroPVC.put("1/2", 1910/14.23);
-        diametroPVC.put("3/4", 1540/14.23);
-        diametroPVC.put("1", 1440/14.23);
-        diametroPVC.put("5/4", 1180/14.23);
-        diametroPVC.put("3/2", 1060/14.23);
-        diametroPVC.put("2", 890/14.23);
-        diametroPVC.put("5/2", 870/14.23);
-        diametroPVC.put("3", 840/14.23);
-        diametroPVC.put("4", 710/14.23);
-        diametroPVC.put("5", 620/14.23);
-        diametroPVC.put("6", 560/14.23);
-        diametroPVC.put("8", 500/14.23);
-        diametroPVC.put("10", 450/14.23);
-        diametroPVC.put("12", 420/14.23);
+        this.elasticidad.put("Acero",(float)2100000 );
+        this.elasticidad.put("PVC", (float)28100);
+        this.elasticidad.put("PE",(float)5200);
 
-        diametroAcero.put("1/8", 3500/14.23);
-        diametroAcero.put("1/4", 2100/14.23);
-        diametroAcero.put("3/8", 1700/14.23);
-        diametroAcero.put("1/2", 2300/14.23);
-        diametroAcero.put("3/4", 2000/14.23);
-        diametroAcero.put("1", 2100/14.23);
-        diametroAcero.put("5/4", 1800/14.23);
-        diametroAcero.put("3/2", 1700/14.23);
-        diametroAcero.put("2", 1500/14.23);
-        diametroAcero.put("5/2", 1900/14.23);
-        diametroAcero.put("3", 1600/14.23);
-        diametroAcero.put("7/2", 1500/14.23);
-        diametroAcero.put("4", 1400/14.23);
-        diametroAcero.put("5", 1300/14.23);
-        diametroAcero.put("6", 1210/14.23);
-        diametroAcero.put("8", 1100/14.23);
-        diametroAcero.put("10", 1030/14.23);
-        diametroAcero.put("12", 1000/14.23);
+        this.diametroPVC.put("1/2", (float)(1910/14.23));
+        this.diametroPVC.put("3/4", (float)(1540/14.23));
+        this.diametroPVC.put("1", (float)(1440/14.23));
+        this.diametroPVC.put("5/4", (float)(1180/14.23));
+        this.diametroPVC.put("3/2", (float)(1060/14.23));
+        this.diametroPVC.put("2", (float)(890/14.23));
+        this.diametroPVC.put("5/2", (float)(870/14.23));
+        this.diametroPVC.put("3", (float)(840/14.23));
+        this.diametroPVC.put("4", (float)(710/14.23));
+        this.diametroPVC.put("5", (float)(620/14.23));
+        this.diametroPVC.put("6", (float)(560/14.23));
+        this.diametroPVC.put("8", (float)(500/14.23));
+        this.diametroPVC.put("10", (float)(450/14.23));
+        this.diametroPVC.put("12", (float)(420/14.23));
 
-        diametroPE.put("1/2", 262/14.23);
-        diametroPE.put("3/4", 220/14.23);
-        diametroPE.put("1", 200/14.23);
-        diametroPE.put("5/4", 162/14.23);
-        diametroPE.put("3/2", 150/14.23);
-        diametroPE.put("2", 125/14.23);
-        diametroPE.put("5/2", 130/14.23);
-        diametroPE.put("3", 122/14.23);
-        diametroPE.put("7/2", 110/14.23);
-        diametroPE.put("4", 100/14.23);
-        diametroPE.put("5", 95/14.23);
-        diametroPE.put("6", 90/14.23);
+        this.diametroAcero.put("1/8", (float)(3500/14.23));
+        this.diametroAcero.put("1/4", (float)(2100/14.23));
+        this.diametroAcero.put("3/8", (float)(1700/14.23));
+        this.diametroAcero.put("1/2", (float)(2300/14.23));
+        this.diametroAcero.put("3/4", (float)(2000/14.23));
+        this.diametroAcero.put("1", (float)(2100/14.23));
+        this.diametroAcero.put("5/4", (float)(1800/14.23));
+        this.diametroAcero.put("3/2", (float)(1700/14.23));
+        this.diametroAcero.put("2", (float)(1500/14.23));
+        this.diametroAcero.put("5/2", (float)(1900/14.23));
+        this.diametroAcero.put("3", (float)(1600/14.23));
+        this.diametroAcero.put("7/2", (float)(1500/14.23));
+        this.diametroAcero.put("4", (float)(1400/14.23));
+        this.diametroAcero.put("5", (float)(1300/14.23));
+        this.diametroAcero.put("6", (float)(1210/14.23));
+        this.diametroAcero.put("8", (float)(1100/14.23));
+        this.diametroAcero.put("10", (float)(1030/14.23));
+        this.diametroAcero.put("12", (float)(1000/14.23));
+
+        diametroPE.put("1/2", (float)(262/14.23));
+        diametroPE.put("3/4", (float)(220/14.23));
+        diametroPE.put("1", (float)(200/14.23));
+        diametroPE.put("5/4", (float)(162/14.23));
+        diametroPE.put("3/2", (float)(150/14.23));
+        diametroPE.put("2", (float)(125/14.23));
+        diametroPE.put("5/2", (float)(130/14.23));
+        diametroPE.put("3", (float)(122/14.23));
+        diametroPE.put("7/2", (float)(110/14.23));
+        diametroPE.put("4", (float)(100/14.23));
+        diametroPE.put("5", (float)(95/14.23));
+        diametroPE.put("6", (float)(90/14.23));
 
         diametros.put("PVC", diametroPVC);
         diametros.put("Acero", diametroAcero);
@@ -203,15 +224,28 @@ public class ActividadReporte extends AppCompatActivity {
 
     }
 
+    public void alertaTest(String text) {
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Campos vacíos");
+        alertDialog.setMessage(text);
+        alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.hide();
+            }
+        });
+        alertDialog.show();
+    }
+
     public void hacerCalculos(String longitudDescarga, String altInicial, String altFinal, String flujoInicial,
                               String velocidad, String disPerdida, String material, String colchon, String espesor, String diametroComercial) {
         //**Seleccionar el diámetro comercial deseado en base al material
         float flujo = ((Float.parseFloat(flujoInicial))/1000);
 
-        float nuevoDiametro = Float.parseFloat(diametroComercial) * (float)0.0254;
+        float nuevoDiametro = this.diametrosTotales.get(diametroComercial);
+
         float nuevaArea = areaC(nuevoDiametro);
 
-        /*Obtiene rugosidad en base al material*/
+        //Obtiene rugosidad en base al material
         float rugosidadElegida = this.rugosidad.get(material);
 
         float nuevaVelocidad = correccionV(flujo, nuevaArea);
@@ -223,7 +257,7 @@ public class ActividadReporte extends AppCompatActivity {
         //**Seleccionar elasticidad del material
         float elasticidadMaterial = this.elasticidad.get(material);
 
-        float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro,elasticidadMaterial, Float.parseFloat(espesor));
+        float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro, elasticidadMaterial, Float.parseFloat(espesor));
         float presionGolpeAriete = golpeA(golpeAriete);
         float pn = pnMetros(h, (Float.parseFloat(disPerdida)), perdidaFriccion);
         float presionPn = pn(pn);
@@ -234,11 +268,46 @@ public class ActividadReporte extends AppCompatActivity {
         Map<String, Float> presionEsogida = diametros.get(material);
         float presionTubo = presionEsogida.get(diametroComercial);
 
+        //Text Views para todos los campos
+        TextView velocidadText = (TextView) findViewById(R.id.velocidad);
+        velocidadText.setText(velocidad);
+        TextView flujoText = (TextView) findViewById(R.id.flujo);
+        flujoText.setText(flujoInicial);
+        TextView cargaEstaticaText = (TextView) findViewById(R.id.cargaEstatica);
+        cargaEstaticaText.setText(h + "");
+        TextView materialText = (TextView) findViewById(R.id.material);
+        materialText.setText(material);
+        TextView elasticidadText = (TextView) findViewById(R.id.elasticidad);
+        elasticidadText.setText(elasticidadMaterial + "");
+        TextView rugosidadText = (TextView) findViewById(R.id.rugosidad);
+        rugosidadText.setText(rugosidadElegida + "");
+        TextView presionTuboText = (TextView) findViewById(R.id.presionTubo);
+        presionTuboText.setText(presionTubo + "");
+        TextView areaCorregidaText = (TextView) findViewById(R.id.areaC);
+        areaCorregidaText.setText(nuevaArea + "");
+        TextView correccionVText = (TextView) findViewById(R.id.correccionV);
+        correccionVText.setText(nuevaVelocidad + "");
+        TextView perdidaFriccionText = (TextView) findViewById(R.id.perdidaFriccion);
+        perdidaFriccionText.setText(perdidaFriccion + "");
+        TextView golpeArieteText = (TextView) findViewById(R.id.golpeMetros);
+        golpeArieteText.setText(golpeAriete + "");
+        TextView pniText = (TextView) findViewById(R.id.pnMetros);
+        pniText.setText(pn + "");
+        TextView ptiText = (TextView) findViewById(R.id.ptMetros);
+        ptiText.setText(pt + "");
+        TextView golpeA2Text = (TextView) findViewById(R.id.golpeA);
+        golpeA2Text.setText(presionGolpeAriete + "");
+        TextView pnText = (TextView) findViewById(R.id.pn);
+        pnText.setText(presionPn + "");
+        TextView ptText = (TextView) findViewById(R.id.pt);
+        ptText.setText(ptFinal + "");
+
+
         if(ptFinal >= presionTubo) {
             float pva = (float)(presionPn + (presionGolpeAriete * 0.2));
+            alertaTest("La presión supera a la presión del tubo. Se usará una válvula de alivio");
             if(pva >= presionTubo) {
-                TextView alerta = (TextView) findViewById(R.id.alertaReporte);
-                alerta.setText("Presión superada!!");
+                alertaTest("La presión continua superando la presión del tubo. Por favor, regresa y selecciona otro tubo\nPresión obtenida: "+pva+" - Presión del tubo: "+presionTubo);
             }
         }
     }
@@ -248,9 +317,8 @@ public class ActividadReporte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_reporte);
 
+        setHashMaps();
         consigueDatos();
-
-        setHashMaps(this.rugosidad, this.elasticidad, this.diametroPVC, this.diametroAcero, this.diametroPE, this.diametroHierro, this.diametros);
 
     }
 
