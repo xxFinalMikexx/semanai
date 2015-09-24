@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="m/s^2"
+                android:text="m/s"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/velU"
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="kg/cm^2"
+                android:text="m^3/s"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/flujoU"
@@ -225,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="e"
+                android:text="kg/cm^2"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/elasu"
@@ -295,7 +295,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="bar"
+                android:text="kg/cm^2"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/textView"
@@ -304,10 +304,12 @@
 
         <TableRow
             android:layout_width="match_parent"
+            android:background="@color/barras"
             android:layout_height="match_parent"></TableRow>
 
         <TableRow
             android:layout_width="match_parent"
+            android:background="@color/barras"
             android:layout_height="match_parent">
 
             <TextView
@@ -321,7 +323,7 @@
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/reporteText"
                 android:layout_column="0"
-                android:layout_span="4" />
+                android:layout_span="5" />
         </TableRow>
 
         <TableRow
@@ -352,7 +354,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="unidades"
+                android:text="m^2"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/areaCU"
@@ -387,7 +389,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="m/s^2"
+                android:text="m/s"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/correccionVU"
@@ -422,7 +424,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="unidades"
+                android:text="m"
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/perdidaU"
@@ -437,6 +439,7 @@
 
         <TableRow
             android:layout_width="match_parent"
+            android:background="@color/barras"
             android:layout_height="match_parent">
 
 
@@ -534,6 +537,7 @@
 
         <TableRow
             android:layout_width="match_parent"
+            android:background="@color/barras"
             android:layout_height="match_parent">
 
             <TextView
