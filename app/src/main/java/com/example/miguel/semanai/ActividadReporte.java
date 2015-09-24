@@ -1,5 +1,9 @@
 package com.example.miguel.semanai;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.support.v4.util.LogWriter;
@@ -14,10 +18,29 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
+class seleccionaNuevoDiametro extends DialogFragment {
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Use the Builder class for convenient dialog construction
+        String items[] = {"Uno", "Dos", "Tres"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Selecciona opción:")
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                    }
+                });
+        // Create the AlertDialog object and return it
+        return builder.create();
+    }
+}
+
 public class ActividadReporte extends AppCompatActivity {
 
     private double pi= 3.141592;
-    public double elasticidadAgua= 20670;
+    private double elasticidadAgua= 20670;
+    private float diametroComercial = (float)1.0;
 
     public void setHashMaps(Map rugosidad, Map elasticidad, Map diametroPVC, Map diametroAcero, Map diametroPE, Map diametroHierro, Map diametros) {
         rugosidad.put("acero", 0.0010);
@@ -83,9 +106,6 @@ public class ActividadReporte extends AppCompatActivity {
         diametros.put("Acero", diametroAcero);
         diametros.put("Hierro", diametroHierro);
         diametros.put("PE", diametroPE);
-
-
-
     }
     ///////////////////////Formulas///////////////////////
     //Altura, H
@@ -94,18 +114,6 @@ public class ActividadReporte extends AppCompatActivity {
         return cargaE;
     }
 
-    //Qmo= flujo
-    //Area que se saca con inputs del usuario
-    public float area(float flujo, float vel){
-        float area=flujo/vel;
-        return area;
-    }
-
-    //Diametro propuesto
-    public float diametro(float area){
-        float diametro= (float) (2*(Math.sqrt(area / pi)));
-        return diametro;
-    }
 
     //Nueva area que se saca con el diametro comercial
     public float areaC(float diametroC){
@@ -174,9 +182,9 @@ public class ActividadReporte extends AppCompatActivity {
     }
 
     //Metodo para regresar a la pantalla de escoger material/alerta
-    public void presionesTubo(float pt, float pn, float golpeA, float presionTubo){
-        float pva=0;
-        if(pt >= presionTubo) {
+    public void presionesTubo(float pt, float pn, float golpeA, float presionTubo) {
+        float pva = 0;
+        if (pt >= presionTubo) {
             pva = (float) (pn + (golpeA * 0.20));
         }
         if(pva>= presionTubo){
@@ -196,40 +204,49 @@ public class ActividadReporte extends AppCompatActivity {
         String velInicial = bundle.getString("VelInicial");
         String disPerdida = bundle.getString("DisPerdida");
         String material = bundle.getString("Material");
+        String colchon = bundle.getString("Colchon");
+        String espesor = bundle.getString("Espesor");
+
+        hacerCalculos(longDescarga, altInicial, altFinal, flujo, velInicial, disPerdida, material, colchon, espesor);
 
     }
 
     public void hacerCalculos(String longitudDescarga, String altInicial, String altFinal, String flujoInicial,
-                              String velocidad, String disPerdida, String material) {
+                              String velocidad, String disPerdida, String material, String colchon, String espesor) {
         float flujo = (Float.parseFloat(flujoInicial)) / 1000;
-        float area = area(flujo, (Float.parseFloat(velocidad)));
-        float diametro = diametro(area);
-        //**Seleccionar el diámetro deseado en base al material
-        float nuevoDiametro = (float) 1.1;
+        /*float area = area(flujo, (Float.parseFloat(velocidad)));
+        float diametro = diametro(area);*/
+
+        //**Seleccionar el diámetro comercial deseado en base al material
+        DialogFragment newFragment = new seleccionaNuevoDiametro();
+        newFragment.show(getFragmentManager(), "missiles");
+
+
+
+        float nuevoDiametro = this.diametroComercial;
         float nuevaArea = areaC(nuevoDiametro);
         //**Obtener rugosidad en base al material
         float rugosidadElegida = (float) 1.1;
         float nuevaVelocidad = correccionV(flujo, nuevaArea);
         float k = k(nuevaVelocidad, nuevoDiametro);
-        float h = cargaEstatica(altFinal, altInicial, colchon);
-        float perdidaFriccion = perdidaFriccion(k, (Float.parseFloat(longitudDescarga), flujo);
+        float h = cargaEstatica(Float.parseFloat(altFinal), Float.parseFloat(altInicial), Float.parseFloat(colchon));
+        float perdidaFriccion = perdidaFriccion(k, (Float.parseFloat(longitudDescarga)), flujo);
         float elasticidadAgua = (float) this.elasticidadAgua;
         //**Seleccionar elasticidad del material
         float elasticidadMaterial = (float) 1.0;
-        float espesor = (EditText) espesormuajaja;
-        float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro,elasticidadMaterial, elasticidadAgua);
+        float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro,elasticidadMaterial, Float.parseFloat(espesor));
         float presionGolpeAriete = golpeA(golpeAriete);
         float pn = pnMetros(h, (Float.parseFloat(disPerdida)), perdidaFriccion);
         float presionPn = pn(pn);
         float pt = ptMetros(golpeAriete, pn);
         float ptFinal = pt(pt);
         //**Diametros es un hashmap con el material y dentro un hashmap con el mapeo de el diámetro -> presión
-        if(ptFinal >= presionTubo) {
+        /*if(ptFinal >= presionTubo) {
             float pva = (float)(presionPn + (presionGolpeAriete * 0.2));
             if(pva >= presionTubo) {
                 //**Cambiar material usado.
             }
-        }
+        }*/
     }
 
     @Override

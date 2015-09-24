@@ -31,8 +31,10 @@ public class ActividadFormulario extends AppCompatActivity {
         EditText velInicial = (EditText) findViewById(R.id.velocidadInicial);
         EditText distPerdida = (EditText) findViewById(R.id.perdidaDistancia);
         Spinner materiales = (Spinner) findViewById(R.id.materialesLista);
+        EditText colchon = (EditText) findViewById(R.id.colchon);
+        EditText espesor = (EditText) findViewById(R.id.espesor);
 
-        boolean campos = verificaCampos(longDescarga, altInicial, altFinal, flujo, velInicial, distPerdida);
+        boolean campos = verificaCampos(longDescarga, altInicial, altFinal, flujo, velInicial, distPerdida, colchon, espesor);
         if(campos) {
             Bundle bundle = new Bundle();
 
@@ -43,8 +45,10 @@ public class ActividadFormulario extends AppCompatActivity {
             bundle.putString("VelInicial" , velInicial.getText().toString());
             bundle.putString("DisPerdida" , distPerdida.getText().toString());
             bundle.putString("Material" , materiales.getSelectedItem().toString());
+            bundle.putString("Colchon" , colchon.getText().toString());
+            bundle.putString("Espesor" , espesor.getText().toString());
 
-            Intent intent = new Intent(this, ActividadReporte.class);
+            Intent intent = new Intent(this, ActividadNuevosDatos.class);
             intent.putExtras( bundle );
             startActivity(intent);
         } else {
@@ -52,14 +56,9 @@ public class ActividadFormulario extends AppCompatActivity {
         }
     }
 
-    public void cargaReporte(EditText longDescarga, EditText altInicial, EditText altFinal, EditText flujo,
-                             EditText velInicial, EditText distPerdida, Spinner materiales) {
-
-    }
-
 
     public boolean verificaCampos(EditText longDescarga, EditText altInicial, EditText altFinal, EditText flujo,
-                                  EditText velInicial, EditText distPerdida){
+                                  EditText velInicial, EditText distPerdida, EditText colchon, EditText espesor){
         boolean campos_completos = true;
 
         if(isNotEmpty(longDescarga)) {
@@ -68,6 +67,15 @@ public class ActividadFormulario extends AppCompatActivity {
                     if(isNotEmpty(flujo)) {
                         if(isNotEmpty(velInicial)) {
                             if(isNotEmpty(distPerdida)) {
+                                if(isNotEmpy(colchon)) {
+                                    if(isNotEmpty(espesor)) {
+                                        campos_completos = true;
+                                    } else {
+                                        campos_completos = false;
+                                    }
+                                } else {
+                                    campos_completos = false;
+                                }
                                 campos_completos = true;
                             } else {
                                 campos_completos = false;

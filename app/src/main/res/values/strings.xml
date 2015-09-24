@@ -11,25 +11,28 @@
     <string name="vel_inicial">Velocidad inicial (m/s)</string>
     <string name="dist_perdida">Distancia por pérdida de conexión (m)</string>
     <string name="descripcion">
-        Por favor inserte los datos a continuación que servirán como los valores iniciales
-        para los cálculos.
+        Completa la siguiente información
     </string>
     <string name="materiales_titulo">Selecciona el material a usar</string>
     <string-array name="materiales">
         <item>Hierro</item>
         <item>Acero</item>
-        <item>Polietileno</item>
-        <item>Concreto</item>
+        <item>PE</item>
         <item>PVC</item>
     </string-array>
     <string name="button_siguiente">Siguiente</string>
     <string name="button_comenzar">Comenzar</string>
     <string name="long_descarga">Longitud de descarga (m)</string>
+    <string name="colchon">Altura de seguridad (m)</string>
+    <string name="espesor">Espeor del tubo (m)</string>
 
     <color name="background">#4264AF</color>
     <color name="fondoInd">#FFFFFF</color>
     <color name="textInd">#000000</color>
     <color name="whiteText">#FFFFFF</color>
+    <string name="title_activity_actividad_nuevos_datos">ActividadNuevosDatos</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>
