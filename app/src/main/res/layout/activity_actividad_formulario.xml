@@ -113,7 +113,8 @@
         android:layout_below="@+id/materialesLista"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/btn_siguiente"/>
+        android:background="@drawable/btn_siguiente"
+        android:onClick="calcular"/>
 
     <EditText
         android:layout_width="match_parent"
