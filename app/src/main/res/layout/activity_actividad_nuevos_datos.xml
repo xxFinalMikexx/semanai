@@ -4,9 +4,105 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/fondo"
     tools:context="com.example.miguel.semanai.ActividadNuevosDatos">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Diametros"
+        android:textColor="@color/whiteText"
+        android:gravity="center_horizontal"
+        android:id="@+id/diametroText"
+        android:background="@color/barras"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="El diametro obtenido es de:"
+        android:textColor="@color/whiteText"
+        android:id="@+id/text"
+        android:layout_below="@+id/diametroText"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=" xxxx"
+        android:textColor="@color/whiteText"
+        android:id="@+id/diametro"
+        android:layout_alignTop="@+id/text"
+        android:layout_toEndOf="@+id/text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=" m"
+        android:textColor="@color/whiteText"
+        android:id="@+id/metrosText"
+        android:layout_alignTop="@+id/diametro"
+        android:layout_toEndOf="@+id/diametro" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Debe de escoger un diametro de la siguiente lista:"
+        android:textColor="@color/whiteText"
+        android:id="@+id/diametroEscogerText"
+        android:layout_below="@+id/text"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="left"
+        android:prompt="Elija un diametro"
+        android:id="@+id/diametrosAcero"
+        android:entries="@array/pulgadasAcero"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/redondeado"
+        android:layout_below="@+id/diametroEscogerText"
+        android:layout_centerVertical="true"
+        android:paddingRight="150dp"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="left"
+        android:prompt="Elija un diametro"
+        android:id="@+id/diametrosPVC"
+        android:entries="@array/pulgadasPVC"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/redondeado"
+        android:layout_below="@+id/diametrosAcero"
+        android:layout_centerVertical="true"
+        android:paddingRight="150dp"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="left"
+        android:prompt="Elija un diametro"
+        android:id="@+id/diametrosPE"
+        android:entries="@array/pulgadasPE"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/redondeado"
+        android:layout_below="@+id/diametrosPVC"
+        android:layout_centerVertical="true"
+        android:paddingRight="150dp"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

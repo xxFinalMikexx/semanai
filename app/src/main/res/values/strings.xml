@@ -30,6 +30,7 @@
     <color name="fondoInd">#FFFFFF</color>
     <color name="textInd">#000000</color>
     <color name="whiteText">#FFFFFF</color>
+    <color name="barras">#38393A</color>
     <string name="title_activity_actividad_nuevos_datos">ActividadNuevosDatos</string>
 
     <string name="hello_world">Hello world!</string>

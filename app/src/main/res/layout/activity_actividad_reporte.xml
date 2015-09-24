@@ -3,7 +3,7 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@drawable/fondo"
-    android:textColor="@color/textInd"
+    android:textColor="@color/whiteText"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.miguel.semanai.ActividadReporte"
@@ -15,6 +15,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Componentes"
+        android:textColor="@color/whiteText"
+        android:background="@color/barras"
         android:gravity="center_horizontal"
         android:id="@+id/componentesText"
         android:layout_alignParentTop="true"
@@ -24,7 +26,6 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:textColor="@color/textInd"
         android:layout_below="@+id/componentesText"
         android:layout_alignParentStart="true"
         android:id="@+id/tableLayout">
@@ -47,6 +48,7 @@
                 android:id="@+id/velText"
                 android:layout_column="1"
                 android:text="Velocidad"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2" />
 
             <TextView
@@ -54,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/velocidad"
                 android:layout_column="3" />
@@ -63,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="m/s^2"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/velU"
                 android:layout_column="4" />
@@ -78,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Flujo"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/flujoText"
                 android:layout_column="1" />
@@ -87,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/flujo"
                 android:layout_column="3" />
@@ -96,6 +102,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="kg/cm^2"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/flujoU"
                 android:layout_column="4" />
@@ -111,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Carga Estatica"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/cargaEstaticaText"
                 android:layout_column="1" />
@@ -120,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/cargaEstatica"
                 android:layout_column="3" />
@@ -129,6 +138,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="m"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/metrosText1"
                 android:layout_column="4" />
@@ -146,6 +156,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Propiedades del material"
+        android:textColor="@color/whiteText"
+        android:background="@color/barras"
         android:gravity="center_horizontal"
         android:id="@+id/propiedadesText"
         android:layout_below="@+id/tableLayout"
@@ -168,6 +180,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Material"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/materialText"
                 android:layout_column="0" />
@@ -177,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/material"
                 android:layout_column="2" />
@@ -192,6 +206,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Elasticidad"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/elasticidadText"
                 android:layout_column="0" />
@@ -201,6 +216,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/elasticidad"
                 android:layout_column="2" />
@@ -210,6 +226,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="e"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/elasu"
                 android:layout_column="3" />
@@ -224,8 +241,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Rugosidad"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
-                android:id="@+id/rugosidad"
+                android:id="@+id/rugosidadText"
                 android:layout_column="0" />
 
             <TextView
@@ -233,6 +251,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/rugosidad"
                 android:layout_column="2" />
@@ -242,6 +261,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="unidades"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/rugU"
                 android:layout_column="3" />
@@ -256,6 +276,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Presión"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/presiontext"
                 android:layout_column="0" />
@@ -265,6 +286,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/presionTubo"
                 android:layout_column="2" />
@@ -274,6 +296,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="bar"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/textView"
                 android:layout_column="3" />
@@ -292,6 +315,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Reporte"
+                android:textColor="@color/whiteText"
+                android:background="@color/barras"
                 android:layout_weight="5"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/reporteText"
@@ -308,6 +333,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Area Corregida"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/areaText"
                 android:layout_column="0" />
@@ -317,6 +343,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/areaC"
                 android:layout_column="2" />
@@ -326,6 +353,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="unidades"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/areaCU"
                 android:layout_column="3" />
@@ -340,6 +368,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="CorreciónV"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/correVText"
                 android:layout_column="0" />
@@ -349,6 +378,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/correccionV"
                 android:layout_column="2" />
@@ -358,6 +388,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="m/s^2"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/correccionVU"
                 android:layout_column="3" />
@@ -372,6 +403,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Perdida por Friccion"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/perdidaText"
                 android:layout_column="0" />
@@ -381,6 +413,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/perdidaFriccion"
                 android:layout_column="2" />
@@ -390,6 +423,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="unidades"
+                android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/perdidaU"
                 android:layout_column="3" />
@@ -405,11 +439,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="En Metros"
+                android:textColor="@color/whiteText"
+                android:background="@color/barras"
                 android:layout_weight="5"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/metrosText"
@@ -426,6 +463,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Golpe de Ariete"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/golpeText"
                 android:layout_column="0" />
@@ -435,6 +473,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/golpeMetros"
                 android:layout_column="2" />
@@ -450,6 +489,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PNI"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/pniText"
                 android:layout_column="0" />
@@ -459,6 +499,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/pnMetros"
                 android:layout_column="2" />
@@ -474,6 +515,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PTI"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/ptiText"
                 android:layout_column="0" />
@@ -483,6 +525,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/ptMetros"
                 android:layout_column="2" />
@@ -498,6 +541,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="En Kg/cm^2"
+                android:textColor="@color/whiteText"
+                android:background="@color/barras"
                 android:layout_weight="5"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/kgText"
@@ -514,6 +559,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Golpe de Ariete"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
                 android:id="@+id/golpeAText"
                 android:layout_column="0" />
@@ -523,6 +569,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/golpeA"
                 android:layout_column="2" />
@@ -537,8 +584,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PN"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
-                android:id="@+id/pn"
+                android:id="@+id/pnText"
                 android:layout_column="0" />
 
             <TextView
@@ -546,6 +594,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/pn"
                 android:layout_column="2" />
@@ -560,8 +609,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PT"
+                android:textColor="@color/whiteText"
                 android:layout_weight="2"
-                android:id="@+id/pt"
+                android:id="@+id/ptText"
                 android:layout_column="0" />
 
             <TextView
@@ -569,6 +619,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="xxxxxxxxx"
+                android:textColor="@color/whiteText"
                 android:layout_weight="3"
                 android:id="@+id/pt"
                 android:layout_column="2" />
