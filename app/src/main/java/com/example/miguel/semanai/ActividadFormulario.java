@@ -45,7 +45,7 @@ public class ActividadFormulario extends AppCompatActivity {
             bundle.putString("VelInicial" , velInicial.getText().toString());
             bundle.putString("DisPerdida" , distPerdida.getText().toString());
             bundle.putString("Material" , materiales.getSelectedItem().toString());
-            bundle.putString("Colchon" , colchon.getText().toString());
+            bundle.putString("Colchon", colchon.getText().toString());
             bundle.putString("Espesor" , espesor.getText().toString());
 
             Intent intent = new Intent(this, ActividadNuevosDatos.class);
@@ -62,12 +62,12 @@ public class ActividadFormulario extends AppCompatActivity {
         boolean campos_completos = true;
 
         if(isNotEmpty(longDescarga)) {
-            /*if(isNotEmpty(altInicial)) {
+            if(isNotEmpty(altInicial)) {
                 if(isNotEmpty(altFinal)) {
                     if(isNotEmpty(flujo)) {
                         if(isNotEmpty(velInicial)) {
                             if(isNotEmpty(distPerdida)) {
-                                if(isNotEmpy(colchon)) {
+                                if(isNotEmpty(colchon)) {
                                     if(isNotEmpty(espesor)) {
                                         campos_completos = true;
                                     } else {
@@ -91,7 +91,7 @@ public class ActividadFormulario extends AppCompatActivity {
                 }
             } else {
                 campos_completos = false;
-            }*/
+            }
         } else {
             campos_completos = false;
         }

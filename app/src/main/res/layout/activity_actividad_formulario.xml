@@ -13,27 +13,26 @@
         android:layout_height="30dp"
         android:layout_width="fill_parent"
         android:gravity="left"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:id="@+id/alturaInicial"
         android:hint="@string/alt_inicial"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/longitudDescarga"
         android:layout_alignParentStart="true"
-        android:background="@drawable/redondeado"
-        />
+        android:background="@drawable/redondeado" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:gravity="left"
         android:layout_weight="1"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:id="@+id/alturaFinal"
         android:hint="@string/alt_final"
         android:layout_below="@+id/alturaInicial"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
 
     <TextView
         android:layout_width="match_parent"
@@ -70,12 +69,12 @@
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/velocidadInicial"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/vel_inicial"
         android:layout_below="@+id/cantidadFlujo"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
 
     <EditText
         android:layout_width="match_parent"
@@ -83,12 +82,12 @@
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/cantidadFlujo"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/cant_flujo"
         android:layout_below="@+id/alturaFinal"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
 
     <EditText
         android:layout_width="match_parent"
@@ -96,12 +95,12 @@
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/perdidaDistancia"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/dist_perdida"
         android:layout_below="@+id/velocidadInicial"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
 
     <EditText
         android:layout_width="match_parent"
@@ -109,36 +108,36 @@
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/longitudDescarga"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/long_descarga"
         android:layout_below="@+id/descripcion"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/colchon"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/colchon"
         android:layout_below="@+id/materialesLista"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="left"
         android:layout_weight="1"
         android:id="@+id/espesor"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="@string/espesor"
         android:layout_below="@+id/colchon"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
-        android:background="@drawable/redondeado"/>
+        android:background="@drawable/redondeado" />
 
     <ImageButton
         android:layout_width="200dp"
