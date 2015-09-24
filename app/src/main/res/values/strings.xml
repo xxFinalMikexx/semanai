@@ -78,7 +78,7 @@
     <string name="button_comenzar">Comenzar</string>
     <string name="long_descarga">Longitud de descarga (m)</string>
     <string name="colchon">Altura de seguridad (m)</string>
-    <string name="espesor">Espeor del tubo (m)</string>
+    <string name="espesor">Espesor del tubo (m)</string>
 
     <color name="background">#4264AF</color>
     <color name="fondoInd">#FFFFFF</color>

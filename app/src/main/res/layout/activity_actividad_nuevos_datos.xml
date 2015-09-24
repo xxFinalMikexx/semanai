@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="El diametro obtenido es de:"
+        android:text="Diámetro obtenido:"
         android:textColor="@color/whiteText"
         android:id="@+id/text"
         android:layout_below="@+id/diametroText"
@@ -36,7 +36,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=" xxxx"
         android:textColor="@color/whiteText"
-        android:id="@+id/diametro"
+        android:id="@+id/diametroPropuesto"
         android:layout_alignTop="@+id/text"
         android:layout_toEndOf="@+id/text" />
 
@@ -47,8 +47,8 @@
         android:text=" m"
         android:textColor="@color/whiteText"
         android:id="@+id/metrosText"
-        android:layout_alignTop="@+id/diametro"
-        android:layout_toEndOf="@+id/diametro" />
+        android:layout_alignTop="@+id/diametroPropuesto"
+        android:layout_toEndOf="@+id/diametroPropuesto" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="left"
-        android:prompt="Elija un diametro"
+        android:prompt="@string/materiales_titulo"
         android:id="@+id/diametrosAcero"
         android:entries="@array/pulgadasAcero"
         android:layout_marginTop="20dp"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="left"
-        android:prompt="Elija un diametro"
+        android:prompt="@string/materiales_titulo"
         android:id="@+id/diametrosPVC"
         android:entries="@array/pulgadasPVC"
         android:layout_marginTop="20dp"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="left"
-        android:prompt="Elija un diametro"
+        android:prompt="@string/materiales_titulo"
         android:id="@+id/diametrosPE"
         android:entries="@array/pulgadasPE"
         android:layout_marginTop="20dp"
@@ -105,4 +105,13 @@
         android:layout_centerVertical="true"
         android:paddingRight="150dp"
         android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/nuevosDatosSiguiente"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_siguiente"
+        android:onClick="enviaReporte"/>
 </RelativeLayout>

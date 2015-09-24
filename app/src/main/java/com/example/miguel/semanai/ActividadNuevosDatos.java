@@ -1,5 +1,7 @@
 package com.example.miguel.semanai;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import java.util.Map;
 public class ActividadNuevosDatos extends AppCompatActivity {
 
     private double pi= 3.141592;
+
 
     //Qmo= flujo
     //Area que se saca con inputs del usuario
@@ -41,25 +44,40 @@ public class ActividadNuevosDatos extends AppCompatActivity {
         float area = area(Float.parseFloat(flujo), (Float.parseFloat(velocidad)));
         float diametro = diametro(area);
 
-        TextView diametroPropuesto = findViewById(R.id.diametroPropuesto);
+        TextView diametroPropuesto = (TextView) findViewById(R.id.diametroPropuesto);
         diametroPropuesto.setText(diametro + "");
+
+        Spinner acero = (Spinner) findViewById(R.id.diametrosAcero);
+        Spinner pvc = (Spinner) findViewById(R.id.diametrosPVC);
+        Spinner pe = (Spinner) findViewById(R.id.diametrosPE);
+
+        if(material.equalsIgnoreCase("Acero")) {
+            pvc.setVisibility(View.INVISIBLE);
+            pe.setVisibility(View.INVISIBLE);
+        }
+        if(material.equalsIgnoreCase("PVC")) {
+            acero.setVisibility(View.INVISIBLE);
+            pe.setVisibility(View.INVISIBLE);
+        }
+        if(material.equalsIgnoreCase("PE")) {
+            pvc.setVisibility(View.INVISIBLE);
+            acero.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void enviaReporte(View view) {
         Intent intendReporte = getIntent();
         Bundle bundleReporte = intendReporte.getExtras();
 
-        String longDescarga = bundleReporte.getString("VelInicial");
-        String altInicial = bundleReporte.getString("VelInicial");
-        String altFinal = bundleReporte.getString("VelInicial");
-        String flujo = bundleReporte.getString("VelInicial");
+        String longDescarga = bundleReporte.getString("LongDescarga");
+        String altInicial = bundleReporte.getString("AltInicial");
+        String altFinal = bundleReporte.getString("AltFinal");
+        String flujo = bundleReporte.getString("Flujo");
         String velInicial = bundleReporte.getString("VelInicial");
-        String distPerdida = bundleReporte.getString("VelInicial");
-        String materiales = bundleReporte.getString("VelInicial");
-        String colchon = bundleReporte.getString("Flujo");
-        String espesor = bundleReporte.getString("Material");
-
-        Spinner nuevoDiametro = (Spinner) findViewById(R.id.nuevoDiametro);
+        String distPerdida = bundleReporte.getString("DisPerdida");
+        String materiales = bundleReporte.getString("Material");
+        String colchon = bundleReporte.getString("Colchon");
+        String espesor = bundleReporte.getString("Espesor");
 
         Bundle bundle = new Bundle();
 
@@ -72,7 +90,19 @@ public class ActividadNuevosDatos extends AppCompatActivity {
         bundle.putString("Material" , materiales);
         bundle.putString("Colchon" , colchon);
         bundle.putString("Espesor" , espesor);
-        bundle.putString("NuevoDiametro", nuevoDiametro.getSelectedItem().toString());
+
+        if(materiales.equalsIgnoreCase("Acero")) {
+            Spinner nuevoDiametro = (Spinner) findViewById(R.id.diametrosAcero);
+            bundle.putString("NuevoDiametro", nuevoDiametro.getSelectedItem().toString());
+        }
+        if(materiales.equalsIgnoreCase("PVC")) {
+            Spinner nuevoDiametro = (Spinner) findViewById(R.id.diametrosPVC);
+            bundle.putString("NuevoDiametro", nuevoDiametro.getSelectedItem().toString());
+        }
+        if(materiales.equalsIgnoreCase("PE")) {
+            Spinner  nuevoDiametro = (Spinner) findViewById(R.id.diametrosPE);
+            bundle.putString("NuevoDiametro", nuevoDiametro.getSelectedItem().toString());
+        }
 
         Intent intent = new Intent(this, ActividadReporte.class);
         intent.putExtras( bundle );
