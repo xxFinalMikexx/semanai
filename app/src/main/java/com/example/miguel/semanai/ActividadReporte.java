@@ -200,7 +200,7 @@ public class ActividadReporte extends AppCompatActivity {
     }
 
     public void hacerCalculos(String longitudDescarga, String altInicial, String altFinal, String flujoInicial,
-                              String velocidad, String disPerdida, String material) {
+                              String velocidad, String disPerdida, String material, String colchon) {
         float flujo = (Float.parseFloat(flujoInicial)) / 1000;
         float area = area(flujo, (Float.parseFloat(velocidad)));
         float diametro = diametro(area);
@@ -211,7 +211,7 @@ public class ActividadReporte extends AppCompatActivity {
         float rugosidadElegida = (float) 1.1;
         float nuevaVelocidad = correccionV(flujo, nuevaArea);
         float k = k(nuevaVelocidad, nuevoDiametro);
-        float h = cargaEstatica(altFinal, altInicial, colchon);
+        float h = cargaEstatica(Float.parseFloat(altFinal), Float.parseFloat(altInicial), Float.parseFloat(colchon));
         float perdidaFriccion = perdidaFriccion(k, (Float.parseFloat(longitudDescarga), flujo);
         float elasticidadAgua = (float) this.elasticidadAgua;
         //**Seleccionar elasticidad del material
