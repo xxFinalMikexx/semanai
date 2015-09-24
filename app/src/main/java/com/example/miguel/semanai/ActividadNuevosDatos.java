@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,76 +16,11 @@ import java.util.Map;
 public class ActividadNuevosDatos extends AppCompatActivity {
 
     private double pi= 3.141592;
-    Map<String, Float> diametroPVC= new HashMap<String, Float>();
-    //HashMap de diametros Acero
-    Map<String, Float> diametroAcero= new HashMap<String, Float>();
-    //HashMap de diametros PE
-    Map<String, Float> diametroPE= new HashMap<String, Float>();
-    //HashMap de diametros PE
-    Map<String, Float> diametroHierro= new HashMap<String, Float>();
-    //HashMap de diametros PE
-    Map<String, Map<String, Float>> diametros= new HashMap<String, Map<String, Float>>();
-
-    public void setHashMaps(Map diametroPVC, Map diametroAcero, Map diametroPE, Map diametroHierro, Map diametros) {
-        diametroPVC.put("1/2", 1910/14.23);
-        diametroPVC.put("3/4", 1540/14.23);
-        diametroPVC.put("1", 1440/14.23);
-        diametroPVC.put("5/4", 1180/14.23);
-        diametroPVC.put("3/2", 1060/14.23);
-        diametroPVC.put("2", 890/14.23);
-        diametroPVC.put("5/2", 870/14.23);
-        diametroPVC.put("3", 840/14.23);
-        diametroPVC.put("4", 710/14.23);
-        diametroPVC.put("5", 620/14.23);
-        diametroPVC.put("6", 560/14.23);
-        diametroPVC.put("8", 500/14.23);
-        diametroPVC.put("10", 450/14.23);
-        diametroPVC.put("12", 420/14.23);
-
-        diametroAcero.put("1/8", 3500/14.23);
-        diametroAcero.put("1/4", 2100/14.23);
-        diametroAcero.put("3/8", 1700/14.23);
-        diametroAcero.put("1/2", 2300/14.23);
-        diametroAcero.put("3/4", 2000/14.23);
-        diametroAcero.put("1", 2100/14.23);
-        diametroAcero.put("5/4", 1800/14.23);
-        diametroAcero.put("3/2", 1700/14.23);
-        diametroAcero.put("2", 1500/14.23);
-        diametroAcero.put("5/2", 1900/14.23);
-        diametroAcero.put("3", 1600/14.23);
-        diametroAcero.put("7/2", 1500/14.23);
-        diametroAcero.put("4", 1400/14.23);
-        diametroAcero.put("5", 1300/14.23);
-        diametroAcero.put("6", 1210/14.23);
-        diametroAcero.put("8", 1100/14.23);
-        diametroAcero.put("10", 1030/14.23);
-        diametroAcero.put("12", 1000/14.23);
-
-        diametroPE.put("1/2", 262/14.23);
-        diametroPE.put("3/4", 220/14.23);
-        diametroPE.put("1", 200/14.23);
-        diametroPE.put("5/4", 162/14.23);
-        diametroPE.put("3/2", 150/14.23);
-        diametroPE.put("2", 125/14.23);
-        diametroPE.put("5/2", 130/14.23);
-        diametroPE.put("3", 122/14.23);
-        diametroPE.put("7/2", 110/14.23);
-        diametroPE.put("4", 100/14.23);
-        diametroPE.put("5", 95/14.23);
-        diametroPE.put("6", 90/14.23);
-
-        diametroHierro.put("x", 24.61);
-
-        diametros.put("PVC", diametroPVC);
-        diametros.put("Acero", diametroAcero);
-        diametros.put("Hierro", diametroHierro);
-        diametros.put("PE", diametroPE);
-    }
 
     //Qmo= flujo
     //Area que se saca con inputs del usuario
     public float area(float flujo, float vel){
-        float area=flujo/vel;
+        float area=(flujo/1000)/vel;
         return area;
     }
 
@@ -91,7 +30,7 @@ public class ActividadNuevosDatos extends AppCompatActivity {
         return diametro;
     }
 
-    public void consigueDatos() {
+    public void consigueNuevoDiametro() {
         Intent intendReporte = getIntent();
         Bundle bundle = intendReporte.getExtras();
 
@@ -99,11 +38,45 @@ public class ActividadNuevosDatos extends AppCompatActivity {
         String flujo = bundle.getString("Flujo");
         String material = bundle.getString("Material");
 
-        Map<String, Float> materialEscogido = this.diametros.get(material);
-
-
         float area = area(Float.parseFloat(flujo), (Float.parseFloat(velocidad)));
         float diametro = diametro(area);
+
+        TextView diametroPropuesto = findViewById(R.id.diametroPropuesto);
+        diametroPropuesto.setText(diametro + "");
+    }
+
+    public void enviaReporte(View view) {
+        Intent intendReporte = getIntent();
+        Bundle bundleReporte = intendReporte.getExtras();
+
+        String longDescarga = bundleReporte.getString("VelInicial");
+        String altInicial = bundleReporte.getString("VelInicial");
+        String altFinal = bundleReporte.getString("VelInicial");
+        String flujo = bundleReporte.getString("VelInicial");
+        String velInicial = bundleReporte.getString("VelInicial");
+        String distPerdida = bundleReporte.getString("VelInicial");
+        String materiales = bundleReporte.getString("VelInicial");
+        String colchon = bundleReporte.getString("Flujo");
+        String espesor = bundleReporte.getString("Material");
+
+        Spinner nuevoDiametro = (Spinner) findViewById(R.id.nuevoDiametro);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("LongDescarga", longDescarga);
+        bundle.putString("AltInicial" , altInicial);
+        bundle.putString("AltFinal" , altFinal);
+        bundle.putString("Flujo" , flujo);
+        bundle.putString("VelInicial" , velInicial);
+        bundle.putString("DisPerdida" , distPerdida);
+        bundle.putString("Material" , materiales);
+        bundle.putString("Colchon" , colchon);
+        bundle.putString("Espesor" , espesor);
+        bundle.putString("NuevoDiametro", nuevoDiametro.getSelectedItem().toString());
+
+        Intent intent = new Intent(this, ActividadReporte.class);
+        intent.putExtras( bundle );
+        startActivity(intent);
     }
 
     @Override
@@ -111,9 +84,7 @@ public class ActividadNuevosDatos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_nuevos_datos);
 
-        setHashMaps(diametroPVC, diametroAcero, diametroPE, diametroHierro, diametros);
-
-
+        consigueNuevoDiametro();
     }
 
     @Override

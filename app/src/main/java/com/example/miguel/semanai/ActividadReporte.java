@@ -18,40 +18,34 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
-class seleccionaNuevoDiametro extends DialogFragment {
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
-        String items[] = {"Uno", "Dos", "Tres"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Selecciona opción:")
-                .setItems(items, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
-                    }
-                });
-        // Create the AlertDialog object and return it
-        return builder.create();
-    }
-}
-
 public class ActividadReporte extends AppCompatActivity {
 
     private double pi= 3.141592;
     private double elasticidadAgua= 20670;
-    private float diametroComercial = (float)1.0;
+    //HashMap de Rugosidad
+    Map<String, Float> rugosidad= new HashMap<String, Float>();
+    //HashMap de elasticidad
+    Map<String, Float> elasticidad= new HashMap<String, Float>();
+    //HashMap de diametros PVC
+    Map<String, Float> diametroPVC= new HashMap<String, Float>();
+    //HashMap de diametros Acero
+    Map<String, Float> diametroAcero= new HashMap<String, Float>();
+    //HashMap de diametros PE
+    Map<String, Float> diametroPE= new HashMap<String, Float>();
+    //HashMap de diametros PE
+    Map<String, Float> diametroHierro= new HashMap<String, Float>();
+    //HashMap de diametros PE
+    Map<String, Map<String, Float>> diametros= new HashMap<String, Map<String, Float>>();
+
 
     public void setHashMaps(Map rugosidad, Map elasticidad, Map diametroPVC, Map diametroAcero, Map diametroPE, Map diametroHierro, Map diametros) {
-        rugosidad.put("acero", 0.0010);
-        rugosidad.put("pvc", 0.009);
-        rugosidad.put("polietireno", 0.008);
-        rugosidad.put("hierro", 0.015);
+        rugosidad.put("Acero", 0.0010);
+        rugosidad.put("PVC", 0.009);
+        rugosidad.put("PR", 0.008);
 
-        elasticidad.put("acero",2100000 );
-        elasticidad.put("pvc", 28100);
-        elasticidad.put("polietireno",5200);
-        elasticidad.put("hierro", 930000);
+        elasticidad.put("Acero",2100000 );
+        elasticidad.put("PVC", 28100);
+        elasticidad.put("PE",5200);
 
         diametroPVC.put("1/2", 1910/14.23);
         diametroPVC.put("3/4", 1540/14.23);
@@ -100,11 +94,8 @@ public class ActividadReporte extends AppCompatActivity {
         diametroPE.put("5", 95/14.23);
         diametroPE.put("6", 90/14.23);
 
-        diametroHierro.put("x", 24.61);
-
         diametros.put("PVC", diametroPVC);
         diametros.put("Acero", diametroAcero);
-        diametros.put("Hierro", diametroHierro);
         diametros.put("PE", diametroPE);
     }
     ///////////////////////Formulas///////////////////////
@@ -206,47 +197,50 @@ public class ActividadReporte extends AppCompatActivity {
         String material = bundle.getString("Material");
         String colchon = bundle.getString("Colchon");
         String espesor = bundle.getString("Espesor");
+        String nuevoDiametro = bundle.getString("NuevoDiametro");
 
-        hacerCalculos(longDescarga, altInicial, altFinal, flujo, velInicial, disPerdida, material, colchon, espesor);
+        hacerCalculos(longDescarga, altInicial, altFinal, flujo, velInicial, disPerdida, material, colchon, espesor, nuevoDiametro);
 
     }
 
     public void hacerCalculos(String longitudDescarga, String altInicial, String altFinal, String flujoInicial,
-                              String velocidad, String disPerdida, String material, String colchon, String espesor) {
-        float flujo = (Float.parseFloat(flujoInicial)) / 1000;
-        /*float area = area(flujo, (Float.parseFloat(velocidad)));
-        float diametro = diametro(area);*/
-
+                              String velocidad, String disPerdida, String material, String colchon, String espesor, String diametroComercial) {
         //**Seleccionar el diámetro comercial deseado en base al material
-        DialogFragment newFragment = new seleccionaNuevoDiametro();
-        newFragment.show(getFragmentManager(), "missiles");
+        float flujo = ((Float.parseFloat(flujoInicial))/1000);
 
-
-
-        float nuevoDiametro = this.diametroComercial;
+        float nuevoDiametro = Float.parseFloat(diametroComercial) * (float)0.0254;
         float nuevaArea = areaC(nuevoDiametro);
-        //**Obtener rugosidad en base al material
-        float rugosidadElegida = (float) 1.1;
+
+        /*Obtiene rugosidad en base al material*/
+        float rugosidadElegida = this.rugosidad.get(material);
+
         float nuevaVelocidad = correccionV(flujo, nuevaArea);
-        float k = k(nuevaVelocidad, nuevoDiametro);
+        float k = k(rugosidadElegida, nuevoDiametro);
+
         float h = cargaEstatica(Float.parseFloat(altFinal), Float.parseFloat(altInicial), Float.parseFloat(colchon));
         float perdidaFriccion = perdidaFriccion(k, (Float.parseFloat(longitudDescarga)), flujo);
-        float elasticidadAgua = (float) this.elasticidadAgua;
+
         //**Seleccionar elasticidad del material
-        float elasticidadMaterial = (float) 1.0;
+        float elasticidadMaterial = this.elasticidad.get(material);
+
         float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro,elasticidadMaterial, Float.parseFloat(espesor));
         float presionGolpeAriete = golpeA(golpeAriete);
         float pn = pnMetros(h, (Float.parseFloat(disPerdida)), perdidaFriccion);
         float presionPn = pn(pn);
         float pt = ptMetros(golpeAriete, pn);
         float ptFinal = pt(pt);
+
         //**Diametros es un hashmap con el material y dentro un hashmap con el mapeo de el diámetro -> presión
-        /*if(ptFinal >= presionTubo) {
+        Map<String, Float> presionEsogida = diametros.get(material);
+        float presionTubo = presionEsogida.get(diametroComercial);
+
+        if(ptFinal >= presionTubo) {
             float pva = (float)(presionPn + (presionGolpeAriete * 0.2));
             if(pva >= presionTubo) {
-                //**Cambiar material usado.
+                TextView alerta = (TextView) findViewById(R.id.alertaReporte);
+                alerta.setText("Presión superada!!");
             }
-        }*/
+        }
     }
 
     @Override
@@ -256,22 +250,7 @@ public class ActividadReporte extends AppCompatActivity {
 
         consigueDatos();
 
-        //HashMap de Rugosidad
-        Map<String, Float> rugosidad= new HashMap<String, Float>();
-        //HashMap de elasticidad
-        Map<String, Float> elasticidad= new HashMap<String, Float>();
-        //HashMap de diametros PVC
-        Map<String, Float> diametroPVC= new HashMap<String, Float>();
-        //HashMap de diametros Acero
-        Map<String, Float> diametroAcero= new HashMap<String, Float>();
-        //HashMap de diametros PE
-        Map<String, Float> diametroPE= new HashMap<String, Float>();
-        //HashMap de diametros PE
-        Map<String, Float> diametroHierro= new HashMap<String, Float>();
-        //HashMap de diametros PE
-        Map<String, Map<String, Float>> diametros= new HashMap<String, Map<String, Float>>();
-
-        setHashMaps(rugosidad, elasticidad, diametroPVC, diametroAcero, diametroPE, diametroHierro, diametros);
+        setHashMaps(this.rugosidad, this.elasticidad, this.diametroPVC, this.diametroAcero, this.diametroPE, this.diametroHierro, this.diametros);
 
     }
 
