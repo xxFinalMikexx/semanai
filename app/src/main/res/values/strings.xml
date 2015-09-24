@@ -14,12 +14,66 @@
         Completa la siguiente información
     </string>
     <string name="materiales_titulo">Selecciona el material a usar</string>
+
     <string-array name="materiales">
-        <item>Hierro</item>
         <item>Acero</item>
         <item>PE</item>
         <item>PVC</item>
     </string-array>
+
+    <string-array name="pulgadasPVC">
+        <item>1/2</item>
+        <item>3/4</item>
+        <item>1</item>
+        <item>5/4</item>
+        <item>3/2</item>
+        <item>2</item>
+        <item>5/2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="pulgadasAcero">
+        <item>1/8</item>
+        <item>1/4</item>
+        <item>3/8</item>
+        <item>1/2</item>
+        <item>3/4</item>
+        <item>1</item>
+        <item>5/4</item>
+        <item>3/2</item>
+        <item>2</item>
+        <item>5/2</item>
+        <item>3</item>
+        <item>7/2</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="pulgadasPE">
+        <item>1/2</item>
+        <item>3/4</item>
+        <item>1</item>
+        <item>5/4</item>
+        <item>3/2</item>
+        <item>2</item>
+        <item>5/2</item>
+        <item>3</item>
+        <item>7/2</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
     <string name="button_siguiente">Siguiente</string>
     <string name="button_comenzar">Comenzar</string>
     <string name="long_descarga">Longitud de descarga (m)</string>
