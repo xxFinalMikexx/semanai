@@ -121,7 +121,7 @@ public class ActividadReporte extends AppCompatActivity {
     }
     ///////////////////////Formulas///////////////////////
     //Altura, H
-    public float cargaEstatica(float altInicial, float altFinal, float colchon){
+    public float cargaEstatica(float altFinal, float altInicial, float colchon){
         float cargaE= (altFinal-altInicial)+colchon;
         return cargaE;
     }
@@ -241,7 +241,7 @@ public class ActividadReporte extends AppCompatActivity {
         //**Seleccionar el diámetro comercial deseado en base al material
         float flujo = ((Float.parseFloat(flujoInicial))/1000);
 
-        float nuevoDiametro = this.diametrosTotales.get(diametroComercial);
+        float nuevoDiametro = this.diametrosTotales.get(diametroComercial) * (float)0.0254;
 
         float nuevaArea = areaC(nuevoDiametro);
 
@@ -259,7 +259,7 @@ public class ActividadReporte extends AppCompatActivity {
 
         float golpeAriete = golpeMetros(nuevaVelocidad, nuevoDiametro, elasticidadMaterial, Float.parseFloat(espesor));
         float presionGolpeAriete = golpeA(golpeAriete);
-        float pn = pnMetros(h, (Float.parseFloat(disPerdida)), perdidaFriccion);
+        float pn = Math.abs(pnMetros(h, (Float.parseFloat(disPerdida)), perdidaFriccion));
         float presionPn = pn(pn);
         float pt = ptMetros(golpeAriete, pn);
         float ptFinal = pt(pt);
