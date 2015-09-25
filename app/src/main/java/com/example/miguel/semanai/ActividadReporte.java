@@ -226,7 +226,7 @@ public class ActividadReporte extends AppCompatActivity {
 
     public void alertaTest(String text) {
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Campos vacíos");
+        alertDialog.setTitle("Información adicional");
         alertDialog.setMessage(text);
         alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
